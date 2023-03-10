@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="music_player.css" />
+  </head>
+  <body>
+    <div class="player_container">
+      <div class="image_container">
+        <img
+          src="images/01 Don't Stop 'Til You Get Enough.jpg"
+          alt="album cover"
+        />
+      </div>
+      <h2 id="title">Don't Stop 'Til You Get Enough</h2>
+      <!--<h3 id="album">Off The Wall</h3>-->
+      <h3 id="artist">Michael Jackson</h3>
+
+      <audio
+        id="music"
+        src="tracks/01 Don't Stop 'Til You Get Enough.mp3"
+      ></audio>
+
+      <!--Progress Bar-->
+      <div class="progress_container" id="progress_container">
+        <div class="progress" id="progress"></div>
+        <div class="duration_wrapper">
+          <span id="current_time">00:00</span>
+          <span id="duration"></span>
+        </div>
+      </div>
+      ;
+
+      <!--Controls-->
+      <div class="player_controls">
+        <i class="fa-sharp fa-solid fa-backward" id="prev" title="previous"
+          >Prev</i
+        >
+        <i class="fa-sharp fa-solid fa-play main_button" id="play" title="play"
+          >Play</i
+        >
+        <i class="fa-sharp fa-solid fa-forward" id="next" title="next">Next</i>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/13e0592400.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="music_player.js"></script>
+  </body>
+</html>
