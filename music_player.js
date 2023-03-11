@@ -8,6 +8,8 @@ const trackImage = document.querySelector('img')
 const trackTitle = document.getElementById('title')
 const albumTitle = document.getElementById('album')
 const artistName = document.getElementById('artist')
+const durationEl = document.getElementById('duration')
+const currentTimeEl = document.getElementById('current_time')
 
 //Songs
 const songs = [
@@ -107,16 +109,27 @@ function updateProgressBar (e) {
 
     //Calculate display for duration
     const durationMinutes = Math.floor(duration / 60)
-    console.log(durationMinutes)
+    console.log('minutes:', durationMinutes)
 
     let durationSeconds = Math.floor(duration % 60)
     if (durationSeconds < 10) {
       durationSeconds = `0{durationSeconds}`
     }
     console.log('seconds:', durationSeconds)
+    if (durationSeconds) {
+      durationEl.textContent = `${durationMinutes}:${durationSeconds}`
+    }
+    //Calculate display for current time
+    const currentMinutes = Math.floor(currentTime / 60)
+    console.log('minutes', currentMinutes)
+    let currentSeconds = Math.floor(currentTime % 60)
+    if (currentSeconds < 10) {
+      currentSeconds = `0${currentSeconds}`
+    }
+    console.log('seconds', currentSeconds)
+    currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`
   }
 }
-
 //Event Listeners
 prevButton.addEventListener('click', prevSong)
 nextButton.addEventListener('click', nextSong)

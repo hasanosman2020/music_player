@@ -87,7 +87,7 @@ h3 {
     /*position: absolute;
     top: 0;
     left: 0;*/
-    transition: width 0.5s linear;
+    transition: width 0.1s linear;
 }
 .duration_wrapper {
     position: relative;
