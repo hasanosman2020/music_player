@@ -14,9 +14,9 @@ const currentTimeEl = document.getElementById('current_time')
 //Songs
 const songs = [
   {
-    name: "01 Don't Stop 'Til You Get Enough",
-    displayName: "Don't Stop 'Til You Get Enough",
-    artist: 'Michael Jackson'
+    name: '01 Luxury_Cococure',
+    displayName: 'Luxury_Cococure',
+    artist: 'Maxwell'
   },
   {
     name: '02 Wasting My Young Years Fading Soul Remix',
@@ -109,7 +109,7 @@ function updateProgressBar (e) {
 
     //Calculate display for duration
     const durationMinutes = Math.floor(duration / 60)
-    console.log('minutes:', durationMinutes)
+    //FIXME - console.log('minutes:', durationMinutes)
 
     let durationSeconds = Math.floor(duration % 60)
     if (durationSeconds < 10) {
@@ -121,19 +121,35 @@ function updateProgressBar (e) {
     }
     //Calculate display for current time
     const currentMinutes = Math.floor(currentTime / 60)
-    console.log('minutes', currentMinutes)
+    //console.log('minutes', currentMinutes)
     let currentSeconds = Math.floor(currentTime % 60)
     if (currentSeconds < 10) {
       currentSeconds = `0${currentSeconds}`
     }
-    console.log('seconds', currentSeconds)
+    //console.log('seconds', currentSeconds)
     currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`
   }
 }
+
+//Set Progress Bar
+function setProgressBar (e) {
+  console.log(e)
+  const width = this.clientWidth
+  console.log(width)
+  const clickX = e.offsetX
+  console.log(clickX)
+  const { duration } = audio
+  console.log(clickX / width)
+  console.log((clickX / width) * duration)
+  audio.currentTime = (clickX / width) * duration
+}
+
 //Event Listeners
 prevButton.addEventListener('click', prevSong)
 nextButton.addEventListener('click', nextSong)
+audio.addEventListener('ended', nextSong)
 audio.addEventListener('timeupdate', updateProgressBar)
+progressContainer.addEventListener('click', setProgressBar)
 
 //On load - select song
 loadSong(songs[songIndex])
