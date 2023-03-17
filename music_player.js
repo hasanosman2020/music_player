@@ -24,9 +24,9 @@ const songs = [
     artist: 'London Grammar'
   },
   {
-    name: '03 The XX Intro long version',
-    displayName: 'The XX Intro',
-    artist: 'The XX'
+    name: "03 Workin' Day and Night",
+    displayName: "Workin' Day and Night",
+    artist: 'Michael Jackson'
   },
   {
     name: '04 Beat It',
